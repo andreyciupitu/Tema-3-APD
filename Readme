@@ -1,0 +1,24 @@
+Tema #3 APD
+Ciupitu Andrei-Valentin
+332CC
+
+---------------------------- Mod de implementare ------------------------------
+
+    Am inceput implementarea temei pornind de la specificatiile si indicatiile
+din enunt.
+    Mai intai, dupa ce am citit din fisier topologia, am aflat parintele
+fiecarui proces pentru a-l putea folosi ulterior.
+    Mai apoi, in procesul radacina(0) am citit imaginile si le-am trimis pe rand
+la procesele copil. Fiecare proces intermediar asteapta un mesaj de trezire,
+iar pe baza tag-ului va decide ce actiune sa faca mai departe. Astfel, dupa
+ce primeste bucata de imagine si dimensiunile acesteia, o va imparti si o va
+transmite mai departe pe tag-ul corespunzator pana cand se va ajunge la procese
+frunza care vor aplica filtrul asociat tag-ului.
+    Dupa ce au fost procesate toate imaginile, procesul radacina transmite
+un mesaj de terminare catre copii, care il vor propaga pana la frunze si vor
+aduna datele pentru statistica, pe care le vor transmite inapoi la parinti.
+    Pentru colectarea datelor pentru statistica, procesele vor transmite inapoi
+la parinti un vector de dimensiune egala cu numarul de procese. Initial,
+vectorul va fi plin de zerouri pentru toate procesele, cu exceptia frunzelor,
+care vor actualiza intrarea asociata rangului propriu. Fiecare nod intermediar
+va aduna datele de la copii si la va trimite mai departe catre radacina.
